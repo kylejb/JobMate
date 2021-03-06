@@ -12,7 +12,7 @@ from django.core.exceptions import ImproperlyConfigured
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Load sensitive credentials
-with open(os.path.join(BASE_DIR, "_secrets.json")) as secrets_file:
+with open(os.path.join(BASE_DIR, "secrets.json")) as secrets_file:
     secrets = json.load(secrets_file)
 
 
