@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "jobmate_backend"
+name = "jobmate_api"
 version = "0.1.0"
 description = ""
 authors = ["kylejb <47502769+kylejb@users.noreply.github.com>"]
