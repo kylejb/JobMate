@@ -1,3 +1,6 @@
-from django.shortcuts import render
+# from django.shortcuts import render
+# from Listings.models import Listing
 
-# Create your views here.
+
+# class ListingView:
+#     queryset = Listing.object.all()
