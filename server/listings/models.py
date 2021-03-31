@@ -23,13 +23,6 @@ class TechStack(models.Model):
     def __str__(self):
         return f"TechStack({self.frontend_framework.framework} {self.backend_framework.framework})"
 
-    # languages = JavaScript, Python
-    # frontend_frameworks = ReactJS
-    # backend_frameworks = Django
-    # databases = word document
-    # servers = aws
-    # dev_tools = all others
-
 
 class Listing(models.Model):
     """Base Listing Model."""
