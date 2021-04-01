@@ -30,13 +30,16 @@ class Listing(models.Model):
     company = models.CharField(max_length=50)
     date_listed = models.DateField()
     description = models.TextField()
-    tech_stack = models.ForeignKey(TechStack, on_delete=models.CASCADE)
+    tech_stack = models.ForeignKey(
+        TechStack, on_delete=models.CASCADE, null=True, blank=True
+    )
     location = models.CharField(max_length=25)
-    required_experience = models.CharField(max_length=25)
-    salary = models.CharField(max_length=7)
+    required_experience = models.CharField(max_length=25, default="", blank=True)
+    salary = models.CharField(max_length=7, default="", blank=True)
     title = models.CharField(max_length=100)
     url = models.TextField()
-    created_at = models.DateField()
+    created_at = models.DateField(auto_now_add=True)
+    updated_at = models.DateField(auto_now=True)
 
     def __str__(self):
         return f"Listing(<id={self.id} title={self.title} company={self.company} />)"
