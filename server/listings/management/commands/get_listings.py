@@ -6,5 +6,7 @@ class Command(BaseCommand):
     help = "Collect Indeed Job Listing data."
 
     def handle(self, *args, **kwargs):
-        x = IndeedScraper()
-        self.stdout.write(f"{x} Task complete.")
+        IndeedScraper.run(
+            "https://www.indeed.com/jobs?q=software+engineer&l=New+York,+NY&fromage=1"
+        )
+        self.stdout.write("Task complete.")

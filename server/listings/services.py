@@ -54,7 +54,7 @@ class IndeedScraper(BaseScraper):
             sort=default_sort,
             age=default_age,
         )
-        self._last_page = "999999999"
+        self._last_page = -1
         self.start = "00"
 
     def scrape_final_page(self, url) -> str:
@@ -67,7 +67,7 @@ class IndeedScraper(BaseScraper):
         page_counter = soup.find(id="searchCountPages").string.strip()
         last_page = page_counter.split(" ")[1]
 
-        self._last_page = last_page
+        self._last_page = int(last_page)
 
     @staticmethod
     def init_soup(url):
@@ -143,8 +143,7 @@ class IndeedScraper(BaseScraper):
             date_listed=listing_date,
         )
 
-        print("L", listing_test)
-        # listing_test.save()
+        listing_test.save()
 
     @staticmethod
     def get_job_description_and_exp(url):
@@ -154,12 +153,14 @@ class IndeedScraper(BaseScraper):
         required_experience = IndeedScraper.years_in_description(job_desc_content)
         return job_desc, required_experience
 
-    def run(self):
-        # increments by 1 in tens column
-        # page_start = "00"
+    @staticmethod
+    def run(url):
+        bot = IndeedScraper()
+        bot.scrape_final_page(url)
 
-        # loop over page range and run scrape_page with url + &start={page_start}
-        pass
+        for i in range(bot._last_page):
+            soup = IndeedScraper.init_soup(url + f"&start={i}0")
+            bot.scrape_page(soup)
 
     # helper method to parse description string
     @staticmethod
