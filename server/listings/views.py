@@ -1,6 +1,8 @@
-# from django.shortcuts import render
-# from Listings.models import Listing
+from listings.models import Listing
+from listings.serializers import ListingSerializer
+from rest_framework import viewsets
 
 
-# class ListingView:
-#     queryset = Listing.object.all()
+class ListingView(viewsets.ModelViewSet):
+    queryset = Listing.objects.all()
+    serializer_class = ListingSerializer
