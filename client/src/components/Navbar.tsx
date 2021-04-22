@@ -1,22 +1,45 @@
 import React from 'react';
 import styled from 'styled-components';
+import { BrowserRouter, NavLink } from 'react-router-dom';
 
-const Title = styled.h1`
+const Title = styled.div`
 	font-size: 1.5em;
-	text-align: center;
-	color: palevioletred;
+	text-align: left;
+	color: #fffffe;
 `;
-const Wrapper = styled.section`
-	padding: 4em;
-	background: papayawhip;
+const Nav = styled.nav`
+	padding: 0.5em;
+	background: #094067;
+	display: flex;
+`;
+
+const StyledLink = styled(NavLink)`
+	display: block;
+	color: #ef4565;
+	font-weight: bold;
+	text-decoration: none;
+	&:hover {
+		background: white;
+		color: black;
+	}
 `;
 
 function Navbar() {
 	return (
 		<div>
-			<Wrapper>
-				<Title>Hello</Title>
-			</Wrapper>
+			<Nav>
+				<BrowserRouter>
+					<Title>JobMate</Title>
+					<StyledLink
+						className='nav-link'
+						activeClassName='is-active'
+						exact={true}
+						to='/about'
+					>
+						About us
+					</StyledLink>
+				</BrowserRouter>
+			</Nav>
 		</div>
 	);
 }
