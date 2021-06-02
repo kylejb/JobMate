@@ -8,9 +8,10 @@ class ListingView(viewsets.ModelViewSet):
     serializer_class = ListingSerializer
 
     def get_queryset(self):
+
         search_query = self.request.query_params.get("search", None)
 
         if search_query is not None:
-            queryset = self.queryset.filter(title=search_query)
+            self.queryset = self.queryset.filter(title=search_query)
 
-        return queryset
+        return self.queryset
