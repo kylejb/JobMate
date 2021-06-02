@@ -7,9 +7,11 @@ function Search() {
 		setSearchValue(e.target.value);
 	};
 	const submitHandler = async () => {
-		const res = await fetch(
-			`http://localhost:8000/listings/?search=${searchValue}`
-		);
+		const url =
+			searchValue.length === 0
+				? `http://localhost:8000/listings/`
+				: `http://localhost:8000/listings/?search=${searchValue}`;
+		const res = await fetch(url);
 		let data = await res.json();
 		console.log(data);
 	};
