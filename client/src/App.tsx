@@ -5,9 +5,8 @@ function App() {
 	return (
 		<div className='app'>
 			<Navbar />
-			<h1>App Component</h1>
-			<Form exampleProp='typeString' />
-			<Search />
+			{/* <h1>App Component</h1>
+			<Form exampleProp='typeString' /> */}
 		</div>
 	);
 }
