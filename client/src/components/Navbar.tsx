@@ -1,16 +1,15 @@
-import React from 'react';
 import styled from 'styled-components';
 import { BrowserRouter, NavLink } from 'react-router-dom';
 
 const Title = styled.div`
 	font-size: 1.5em;
-	text-align: left;
 	color: #fffffe;
 `;
 const Nav = styled.nav`
 	padding: 0.5em;
 	background: #094067;
 	display: flex;
+	justify-content: space-between;
 `;
 
 const StyledLink = styled(NavLink)`
