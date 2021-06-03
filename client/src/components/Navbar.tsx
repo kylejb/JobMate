@@ -1,9 +1,11 @@
 import styled from 'styled-components';
-import { BrowserRouter, NavLink } from 'react-router-dom';
+import { BrowserRouter as Router, NavLink } from 'react-router-dom';
+import AllRoutes from 'components/Routes';
 
-const Title = styled.div`
+const Title = styled(NavLink)`
 	font-size: 1.5em;
 	color: #fffffe;
+	text-decoration: none;
 `;
 const Nav = styled.nav`
 	padding: 0.5em;
@@ -26,9 +28,16 @@ const StyledLink = styled(NavLink)`
 function Navbar() {
 	return (
 		<div>
-			<Nav>
-				<BrowserRouter>
-					<Title>JobMate</Title>
+			<Router>
+				<Nav>
+					<Title
+						className='nav-link'
+						activeClassName='is-active'
+						exact={true}
+						to='/'
+					>
+						JobMate
+					</Title>
 					<StyledLink
 						className='nav-link'
 						activeClassName='is-active'
@@ -37,8 +46,9 @@ function Navbar() {
 					>
 						About us
 					</StyledLink>
-				</BrowserRouter>
-			</Nav>
+				</Nav>
+				<AllRoutes />
+			</Router>
 		</div>
 	);
 }
